@@ -1,7 +1,3 @@
-/* =========================
-   ELEMENTS
-========================= */
-
 const bootScreen = document.getElementById("boot-screen");
 const openingHero = document.getElementById("opening-hero");
 const accessScreen = document.getElementById("access-screen");
@@ -11,9 +7,7 @@ const closingScreen = document.getElementById("closing-screen");
 const progressBar = document.getElementById("progress-bar");
 
 
-/* =========================
-   INITIAL BOOT
-========================= */
+/* BOOT */
 
 window.addEventListener("load", () => {
 
@@ -27,9 +21,7 @@ window.addEventListener("load", () => {
 });
 
 
-/* =========================
-   OPEN INVITATION
-========================= */
+/* OPEN INVITATION */
 
 function openInvitation() {
 
@@ -58,9 +50,7 @@ function openInvitation() {
 }
 
 
-/* =========================
-   OPEN LOCATION
-========================= */
+/* LOCATION */
 
 function openLocation() {
 
@@ -72,9 +62,7 @@ function openLocation() {
 }
 
 
-/* =========================
-   CLOSE INVITATION
-========================= */
+/* CLOSE INVITATION */
 
 function closeInvitation() {
 
