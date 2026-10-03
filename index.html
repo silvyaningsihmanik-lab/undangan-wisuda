@@ -1,51 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Graduation.exe — Silvya Ningsih</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <title>Graduation.exe | Silvya Ningsih</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- BOOT SCREEN -->
-    <section id="boot-screen" class="screen boot-screen">
+    <!-- ==================================================
+         PAGE 1 — BOOT SCREEN
+    ================================================== -->
+
+    <section class="boot-screen" id="bootScreen">
+
+        <div class="grid"></div>
 
         <div class="terminal">
 
-            <div class="terminal-command">
-                silvya@computer-engineering:~$ ./graduation.exe
+            <div class="terminal-header">
+
+                <div class="window-buttons">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <p>
+                    silvya@computer-engineering
+                </p>
+
             </div>
 
-            <div class="boot-lines">
-                <div>Initializing graduation.system...</div>
-                <div>Loading academic memories...</div>
-                <div>Compiling final project...</div>
-                <div>Connecting to future...</div>
-                <div class="success">✓ SYSTEM READY</div>
+            <div class="terminal-body">
+
+                <p class="boot-line line-1">
+                    <span>silvya@computer-engineering</span>:~$ ./graduation.exe
+                </p>
+
+                <p class="boot-line line-2">
+                    Initializing graduation.system...
+                </p>
+
+                <p class="boot-line line-3">
+                    Loading academic memories...
+                </p>
+
+                <p class="boot-line line-4">
+                    Compiling final project...
+                </p>
+
+                <p class="boot-line line-5">
+                    Connecting to future...
+                </p>
+
+                <p class="boot-line success line-6">
+                    ✓ SYSTEM READY
+                </p>
+
             </div>
 
-            <span class="cursor">_</span>
+        </div>
 
+        <div class="boot-code code-1">
+            01 10 01
+        </div>
+
+        <div class="boot-code code-2">
+            &lt;/&gt;
+        </div>
+
+        <div class="boot-code code-3">
+            { }
+        </div>
+
+        <div class="boot-code code-4">
+            0101
         </div>
 
     </section>
 
 
-    <!-- OPENING COVER -->
-    <section id="opening-hero" class="screen opening-hero hidden">
+    <!-- ==================================================
+         PAGE 1 — COVER
+    ================================================== -->
+
+    <section
+        class="opening-hero"
+        id="openingHero"
+    >
+
+        <div class="hero-grid"></div>
+
+        <div class="hero-code hero-code-left">
+            01 / COMPUTER ENGINEERING
+        </div>
+
+        <div class="hero-code hero-code-right">
+            SYSTEM 2026
+        </div>
 
         <div class="hero-content">
 
-            <p class="eyebrow">
+            <p class="hero-overline">
                 COMPUTER ENGINEERING / 2026
             </p>
 
@@ -53,227 +114,422 @@
                 GRADUATION<span>.EXE</span>
             </h1>
 
-            <div class="pink-line"></div>
+            <div class="hero-line"></div>
 
             <h2>
-                SILVYA NINGSIH, <span>Amd.T</span>
+                SILVYA NINGSIH, Amd.T
             </h2>
 
-            <p class="program">
+            <p class="hero-degree">
                 Teknik Komputer
             </p>
 
-            <div class="tech-tags">
+            <div class="tech-details">
+
                 <span>HTML</span>
                 <span>CSS</span>
                 <span>JAVASCRIPT</span>
                 <span>C++</span>
                 <span>IoT</span>
+
             </div>
 
-            <button class="open-btn" onclick="openInvitation()">
-                <span>OPEN INVITATION</span>
+            <button
+                class="open-button"
+                onclick="openInvitation()"
+            >
+                OPEN INVITATION
                 <span>→</span>
             </button>
 
-            <p class="system-status">
-                SYSTEM STATUS : <span>READY</span>
-            </p>
+        </div>
 
+        <div class="hero-bottom">
+            SYSTEM STATUS : <span>READY</span>
         </div>
 
     </section>
 
 
-    <!-- ACCESS SCREEN -->
-    <section id="access-screen" class="screen access-screen hidden">
+    <!-- ==================================================
+         PAGE TRANSITION
+    ================================================== -->
 
-        <div class="access-box">
+    <section
+        class="access-screen"
+        id="accessScreen"
+    >
 
-            <p>ACCESSING INVITATION...</p>
-            <p>Loading memories...</p>
-            <p>Preparing graduation.system...</p>
+        <div class="access-content">
+
+            <p>
+                ACCESSING INVITATION...
+            </p>
+
+            <div class="access-lines">
+
+                <span>
+                    Loading memories...
+                </span>
+
+                <span>
+                    Preparing graduation.system...
+                </span>
+
+            </div>
 
             <div class="progress">
-                <div id="progress-bar"></div>
+                <div></div>
             </div>
 
-            <p id="progress-text">
+            <small>
                 SYSTEM READY — 100%
-            </p>
+            </small>
 
         </div>
 
     </section>
 
 
-    <!-- INVITATION PAGE -->
-    <section id="invitation-page" class="invitation-page hidden">
+    <!-- ==================================================
+         PAGE 2 — INVITATION
+    ================================================== -->
 
-        <header class="invitation-header">
-            <span>graduation.system</span>
-            <span>2026</span>
-        </header>
+    <main
+        id="invitationPage"
+        class="invitation-page"
+    >
 
+        <div class="background-code">
 
-        <main>
+            <span>01</span>
+            <span>10</span>
+            <span>01</span>
+            <span>11</span>
+            <span>&lt;/&gt;</span>
 
-            <!-- INTRO -->
-            <section class="intro-section">
-
-                <p class="section-label">
-                    GRADUATION INVITATION
-                </p>
-
-                <h2>
-                    ONE CHAPTER
-                    <br>
-                    <span>COMPLETED.</span>
-                </h2>
-
-                <p class="intro-text">
-                    Aku mengundang teman-teman untuk hadir dan ikut
-                    merayakan hari spesial ini bersamaku.
-                </p>
-
-            </section>
+        </div>
 
 
-            <!-- PROFILE -->
-            <section class="profile-section">
+        <div class="invitation-card">
 
-                <div class="photo-frame">
 
-                    <div class="photo-number">
-                        01 / 01
-                    </div>
+            <!-- HEADER -->
 
-                    <img src="siilvya.jpeg" alt="Silvya Ningsih">
+            <div class="card-header">
+
+                <div class="window-buttons">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
 
                 </div>
-
-
-                <div class="profile-info">
-
-                    <h3>
-                        SILVYA NINGSIH, <span>Amd.T</span>
-                    </h3>
-
-                    <p>
-                        COMPUTER ENGINEERING
-                    </p>
-
-                    <div class="status-grid">
-
-                        <div>
-                            <small>STATUS</small>
-                            <strong>GRADUATED</strong>
-                        </div>
-
-                        <div>
-                            <small>YEAR</small>
-                            <strong>2026</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- EVENT -->
-            <section class="event-section">
-
-                <p class="section-label">
-                    EVENT DETAILS
-                </p>
-
-                <div class="event-card">
-
-                    <div class="event-row">
-                        <small>DATE</small>
-                        <strong>06 OCTOBER 2026</strong>
-                    </div>
-
-                    <div class="event-row">
-                        <small>DAY</small>
-                        <strong>SELASA</strong>
-                    </div>
-
-                    <div class="event-row">
-                        <small>TIME</small>
-                        <strong>11.45 WIB</strong>
-                    </div>
-
-                    <div class="event-row">
-                        <small>VENUE</small>
-                        <strong>AUDITORIUM USU</strong>
-                    </div>
-
-                    <p class="venue-detail">
-                        Universitas Sumatera Utara
-                    </p>
-
-                    <button class="location-btn" onclick="openLocation()">
-                        OPEN LOCATION →
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            <!-- THANK YOU -->
-            <section class="thankyou-section">
-
-                <p class="section-label">
-                    THANK YOU
-                </p>
-
-                <h2>
-                    See you there.
-                </h2>
 
                 <p>
-                    Thank you for being part of this special day.
+                    graduation.system
                 </p>
 
-                <div class="signature">
-                    SILVYA NINGSIH, Amd.T
-                </div>
+                <span class="header-status">
+                    ONLINE
+                </span>
 
-                <button class="close-btn" onclick="closeInvitation()">
-                    CLOSE INVITATION ×
+            </div>
+
+
+            <div class="card-content">
+
+
+                <!-- INTRO -->
+
+                <section class="intro-section">
+
+                    <p class="label">
+                        GRADUATION INVITATION
+                    </p>
+
+                    <h2>
+                        ONE CHAPTER
+                    </h2>
+
+                    <h3>
+                        COMPLETED<span>.</span>
+                    </h3>
+
+                    <p class="message">
+                        Setelah melewati perjalanan panjang
+                        perkuliahan, berbagai tugas, laporan,
+                        revisi, dan final project, akhirnya satu
+                        tahap berhasil diselesaikan.
+                    </p>
+
+                </section>
+
+
+                <!-- PROFILE -->
+
+                <section class="profile-section">
+
+                    <div class="profile-photo">
+
+                        <img
+                            src="silvya.jpeg"
+                            alt="Silvya Ningsih"
+                        >
+
+                    </div>
+
+
+                    <div class="profile-info">
+
+                        <p class="profile-label">
+                            SYSTEM PROFILE
+                        </p>
+
+                        <h4>
+                            SILVYA NINGSIH, Amd.T
+                        </h4>
+
+                        <p class="profile-degree">
+                            COMPUTER ENGINEERING
+                        </p>
+
+
+                        <div class="profile-row">
+
+                            <span>
+                                STATUS
+                            </span>
+
+                            <strong>
+                                GRADUATED
+                            </strong>
+
+                        </div>
+
+
+                        <div class="profile-row">
+
+                            <span>
+                                YEAR
+                            </span>
+
+                            <strong>
+                                2026
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- INVITATION TEXT -->
+
+                <section class="invite-section">
+
+                    <div class="invite-line"></div>
+
+                    <p>
+                        Aku mengundang teman-teman untuk hadir
+                        dan ikut merayakan hari spesial ini
+                        bersamaku.
+                    </p>
+
+                </section>
+
+
+                <!-- EVENT -->
+
+                <section class="event-section">
+
+                    <p class="label">
+                        EVENT DETAILS
+                    </p>
+
+                    <div class="event-item">
+
+                        <span class="event-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <small>
+                                DATE
+                            </small>
+
+                            <strong>
+                                06 OCTOBER 2026
+                            </strong>
+
+                            <p>
+                                Selasa
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="event-item">
+
+                        <span class="event-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <small>
+                                TIME
+                            </small>
+
+                            <strong>
+                                11.45 WIB
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="event-item">
+
+                        <span class="event-number">
+                            03
+                        </span>
+
+                        <div>
+
+                            <small>
+                                LOCATION
+                            </small>
+
+                            <strong>
+                                AUDITORIUM USU
+                            </strong>
+
+                            <p>
+                                Universitas Sumatera Utara
+                            </p>
+
+                            <button
+                                class="location-button"
+                                onclick="openLocation()"
+                            >
+                                OPEN LOCATION →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CLOSING MESSAGE -->
+
+                <section class="thank-section">
+
+                    <p class="label">
+                        END OF INVITATION
+                    </p>
+
+                    <h2>
+                        THANK YOU
+                    </h2>
+
+                    <p>
+                        Thank you for being part of this
+                        special day.
+                    </p>
+
+                    <strong>
+                        See you there.
+                    </strong>
+
+                    <h4>
+                        SILVYA NINGSIH, Amd.T
+                    </h4>
+
+                </section>
+
+
+                <!-- CLOSE BUTTON -->
+
+                <button
+                    class="close-button"
+                    onclick="closeInvitation()"
+                >
+                    CLOSE INVITATION
+                    <span>×</span>
                 </button>
 
-            </section>
-
-        </main>
-
-    </section>
-
-
-    <!-- CLOSING SCREEN -->
-    <section id="closing-screen" class="screen closing-screen hidden">
-
-        <div class="terminal">
-
-            <div class="terminal-command">
-                silvya@computer-engineering:~$ closing_invitation.exe
-            </div>
-
-            <div class="closing-lines">
-
-                <div>Saving memories...</div>
-                <div>Closing graduation.system...</div>
-                <div>Disconnecting session...</div>
-                <div class="success">✓ SESSION COMPLETED</div>
-                <div class="success">✓ INVITATION CLOSED</div>
 
             </div>
 
-            <span class="cursor">_</span>
+        </div>
+
+    </main>
+
+
+    <!-- ==================================================
+         CLOSING SCREEN
+    ================================================== -->
+
+    <section
+        class="closing-screen"
+        id="closingScreen"
+    >
+
+        <div class="closing-terminal">
+
+            <div class="closing-header">
+
+                <div class="window-buttons">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+                <p>
+                    graduation.system
+                </p>
+
+            </div>
+
+
+            <div class="closing-body">
+
+                <p class="closing-line closing-1">
+                    silvya@computer-engineering:~$
+                    closing_invitation.exe
+                </p>
+
+                <p class="closing-line closing-2">
+                    Saving memories...
+                </p>
+
+                <p class="closing-line closing-3">
+                    Closing graduation.system...
+                </p>
+
+                <p class="closing-line closing-4">
+                    Disconnecting session...
+                </p>
+
+                <p class="closing-line success closing-5">
+                    ✓ SESSION COMPLETED
+                </p>
+
+                <p class="closing-line success closing-6">
+                    ✓ INVITATION CLOSED
+                </p>
+
+            </div>
 
         </div>
 
@@ -283,4 +539,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
