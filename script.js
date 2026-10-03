@@ -1,56 +1,128 @@
-const bootScreen = document.getElementById("boot-screen");
-const openingHero = document.getElementById("opening-hero");
-const accessScreen = document.getElementById("access-screen");
-const invitationPage = document.getElementById("invitation-page");
-const closingScreen = document.getElementById("closing-screen");
+/* ==================================================
+   ELEMENTS
+================================================== */
 
-const progressBar = document.getElementById("progress-bar");
+const bootScreen =
+    document.getElementById("bootScreen");
+
+const openingHero =
+    document.getElementById("openingHero");
+
+const accessScreen =
+    document.getElementById("accessScreen");
+
+const invitationPage =
+    document.getElementById("invitationPage");
+
+const closingScreen =
+    document.getElementById("closingScreen");
 
 
-/* BOOT */
+/* ==================================================
+   PAGE 1 — BOOT SEQUENCE
+================================================== */
 
-window.addEventListener("load", () => {
+window.addEventListener("load", function () {
 
-    setTimeout(() => {
+    const bootLines = [
+        document.querySelector(".line-1"),
+        document.querySelector(".line-2"),
+        document.querySelector(".line-3"),
+        document.querySelector(".line-4"),
+        document.querySelector(".line-5"),
+        document.querySelector(".line-6")
+    ];
 
-        bootScreen.classList.add("hidden");
-        openingHero.classList.remove("hidden");
+
+    bootLines.forEach(function (line, index) {
+
+        setTimeout(function () {
+
+            line.classList.add("visible");
+
+        }, index * 650);
+
+    });
+
+
+    /*
+        Setelah SYSTEM READY,
+        terminal menghilang.
+    */
+
+    setTimeout(function () {
+
+        bootScreen.style.opacity = "0";
+
+    }, 3900);
+
+
+    /*
+        Cover Graduation.exe muncul.
+    */
+
+    setTimeout(function () {
+
+        bootScreen.style.display = "none";
+
+        openingHero.classList.add("show");
 
     }, 4700);
 
 });
 
 
-/* OPEN INVITATION */
+/* ==================================================
+   OPEN INVITATION
+================================================== */
 
 function openInvitation() {
 
-    openingHero.classList.add("hidden");
-    accessScreen.classList.remove("hidden");
+    /*
+        Tampilkan loading.
+    */
 
-    progressBar.style.width = "0%";
-
-    setTimeout(() => {
-        progressBar.style.width = "100%";
-    }, 100);
+    accessScreen.classList.add("show");
 
 
-    setTimeout(() => {
+    /*
+        Progress bar berjalan.
+    */
 
-        accessScreen.classList.add("hidden");
-        invitationPage.classList.remove("hidden");
+    setTimeout(function () {
 
-        window.scrollTo({
-            top: 0,
-            behavior: "instant"
-        });
+        document.querySelector(
+            ".progress div"
+        ).style.width = "100%";
 
-    }, 2300);
+    }, 150);
+
+
+    /*
+        Setelah loading selesai,
+        PAGE 2 dibuka.
+    */
+
+    setTimeout(function () {
+
+        accessScreen.classList.remove("show");
+
+        openingHero.classList.remove("show");
+
+        openingHero.style.display = "none";
+
+        invitationPage.classList.add("show");
+
+        window.scrollTo(0, 0);
+
+    }, 2200);
 
 }
 
 
-/* LOCATION */
+/* ==================================================
+   LOCATION
+================================================== */
 
 function openLocation() {
 
@@ -62,29 +134,75 @@ function openLocation() {
 }
 
 
-/* CLOSE INVITATION */
+/* ==================================================
+   CLOSE INVITATION
+================================================== */
 
 function closeInvitation() {
 
-    invitationPage.classList.add("hidden");
-    closingScreen.classList.remove("hidden");
+    /*
+        Tampilkan closing system.
+    */
 
-    window.scrollTo({
-        top: 0,
-        behavior: "instant"
+    closingScreen.classList.add("show");
+
+
+    const lines = [
+
+        document.querySelector(".closing-1"),
+        document.querySelector(".closing-2"),
+        document.querySelector(".closing-3"),
+        document.querySelector(".closing-4"),
+        document.querySelector(".closing-5"),
+        document.querySelector(".closing-6")
+
+    ];
+
+
+    /*
+        Closing code muncul 1/1.
+    */
+
+    lines.forEach(function (line, index) {
+
+        setTimeout(function () {
+
+            line.classList.add("visible");
+
+        }, 450 + (index * 600));
+
     });
 
 
-    setTimeout(() => {
+    /*
+        Setelah selesai,
+        kembali ke PAGE 1.
+    */
 
-        closingScreen.classList.add("hidden");
-        openingHero.classList.remove("hidden");
+    setTimeout(function () {
 
-        window.scrollTo({
-            top: 0,
-            behavior: "instant"
+        invitationPage.classList.remove("show");
+
+        closingScreen.classList.remove("show");
+
+        openingHero.style.display = "flex";
+
+        openingHero.classList.add("show");
+
+        window.scrollTo(0, 0);
+
+
+        /*
+            Reset closing lines supaya
+            kalau dibuka lagi bisa dipakai.
+        */
+
+        lines.forEach(function (line) {
+
+            line.classList.remove("visible");
+
         });
 
-    }, 4500);
+    }, 4400);
 
 }
