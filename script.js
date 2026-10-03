@@ -1,3 +1,7 @@
+/* ==================================================
+   ELEMENTS
+================================================== */
+
 const bootScreen =
     document.getElementById("bootScreen");
 
@@ -7,17 +11,20 @@ const openingHero =
 const accessScreen =
     document.getElementById("accessScreen");
 
-const invitation =
-    document.getElementById("invitation");
+const invitationPage =
+    document.getElementById("invitationPage");
+
+const closingScreen =
+    document.getElementById("closingScreen");
 
 
-/* =====================================
-   BOOT SEQUENCE
-===================================== */
+/* ==================================================
+   PAGE 1 — BOOT SEQUENCE
+================================================== */
 
 window.addEventListener("load", function () {
 
-    const lines = [
+    const bootLines = [
         document.querySelector(".line-1"),
         document.querySelector(".line-2"),
         document.querySelector(".line-3"),
@@ -26,7 +33,8 @@ window.addEventListener("load", function () {
         document.querySelector(".line-6")
     ];
 
-    lines.forEach(function (line, index) {
+
+    bootLines.forEach(function (line, index) {
 
         setTimeout(function () {
 
@@ -37,7 +45,10 @@ window.addEventListener("load", function () {
     });
 
 
-    /* after SYSTEM READY */
+    /*
+        Setelah SYSTEM READY,
+        terminal menghilang.
+    */
 
     setTimeout(function () {
 
@@ -45,6 +56,10 @@ window.addEventListener("load", function () {
 
     }, 3900);
 
+
+    /*
+        Cover Graduation.exe muncul.
+    */
 
     setTimeout(function () {
 
@@ -57,27 +72,46 @@ window.addEventListener("load", function () {
 });
 
 
-/* =====================================
+/* ==================================================
    OPEN INVITATION
-===================================== */
+================================================== */
 
 function openInvitation() {
+
+    /*
+        Tampilkan loading.
+    */
 
     accessScreen.classList.add("show");
 
 
+    /*
+        Progress bar berjalan.
+    */
+
     setTimeout(function () {
 
-        document.querySelector(".progress div").style.width = "100%";
+        document.querySelector(
+            ".progress div"
+        ).style.width = "100%";
 
     }, 150);
 
+
+    /*
+        Setelah loading selesai,
+        PAGE 2 dibuka.
+    */
 
     setTimeout(function () {
 
         accessScreen.classList.remove("show");
 
-        invitation.classList.add("show");
+        openingHero.classList.remove("show");
+
+        openingHero.style.display = "none";
+
+        invitationPage.classList.add("show");
 
         window.scrollTo(0, 0);
 
@@ -86,9 +120,9 @@ function openInvitation() {
 }
 
 
-/* =====================================
+/* ==================================================
    LOCATION
-===================================== */
+================================================== */
 
 function openLocation() {
 
@@ -100,78 +134,75 @@ function openLocation() {
 }
 
 
-/* =====================================
-   CLOSING SEQUENCE
-===================================== */
+/* ==================================================
+   CLOSE INVITATION
+================================================== */
 
-const closingTerminal =
-    document.querySelector(".closing-terminal");
+function closeInvitation() {
 
-const closingLines = [
-    document.querySelector(".close-1"),
-    document.querySelector(".close-2"),
-    document.querySelector(".close-3"),
-    document.querySelector(".close-4"),
-    document.querySelector(".close-5"),
-    document.querySelector(".close-6")
-];
+    /*
+        Tampilkan closing system.
+    */
 
-const closing =
-    document.querySelector(".closing");
+    closingScreen.classList.add("show");
 
 
-let closingStarted = false;
+    const lines = [
+
+        document.querySelector(".closing-1"),
+        document.querySelector(".closing-2"),
+        document.querySelector(".closing-3"),
+        document.querySelector(".closing-4"),
+        document.querySelector(".closing-5"),
+        document.querySelector(".closing-6")
+
+    ];
 
 
-function startClosingSequence() {
+    /*
+        Closing code muncul 1/1.
+    */
 
-    if (closingStarted) return;
-
-    closingStarted = true;
-
-    closingTerminal.classList.add("show");
-
-
-    closingLines.forEach(function (line, index) {
+    lines.forEach(function (line, index) {
 
         setTimeout(function () {
 
             line.classList.add("visible");
 
-        }, 500 + (index * 600));
+        }, 450 + (index * 600));
 
     });
 
+
+    /*
+        Setelah selesai,
+        kembali ke PAGE 1.
+    */
 
     setTimeout(function () {
 
-        closing.classList.add("show");
+        invitationPage.classList.remove("show");
 
-    }, 4100);
+        closingScreen.classList.remove("show");
 
-}
+        openingHero.style.display = "flex";
+
+        openingHero.classList.add("show");
+
+        window.scrollTo(0, 0);
 
 
-/* =====================================
-   DETECT CLOSING TERMINAL
-===================================== */
+        /*
+            Reset closing lines supaya
+            kalau dibuka lagi bisa dipakai.
+        */
 
-const observer =
-    new IntersectionObserver(function (entries) {
+        lines.forEach(function (line) {
 
-        entries.forEach(function (entry) {
-
-            if (entry.isIntersecting) {
-
-                startClosingSequence();
-
-            }
+            line.classList.remove("visible");
 
         });
 
-    }, {
-        threshold: 0.35
-    });
+    }, 4400);
 
-
-observer.observe(closingTerminal);
+}
