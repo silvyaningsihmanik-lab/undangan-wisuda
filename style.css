@@ -1,7 +1,3 @@
-/* =========================
-   ROOT
-========================= */
-
 :root {
     --navy: #10182f;
     --navy-dark: #080e20;
@@ -12,11 +8,6 @@
     --muted: #969db3;
     --line: rgba(214, 154, 181, 0.25);
 }
-
-
-/* =========================
-   RESET
-========================= */
 
 * {
     margin: 0;
@@ -39,11 +30,6 @@ button {
     font-family: "DM Mono", monospace;
 }
 
-
-/* =========================
-   GENERAL
-========================= */
-
 .hidden {
     display: none !important;
 }
@@ -53,14 +39,8 @@ button {
     width: 100%;
 }
 
-.terminal {
-    font-family: "DM Mono", monospace;
-}
 
-
-/* =========================
-   GRID BACKGROUND
-========================= */
+/* BACKGROUND */
 
 .boot-screen,
 .opening-hero,
@@ -84,9 +64,11 @@ button {
 }
 
 
-/* =========================
-   BOOT SCREEN
-========================= */
+/* TERMINAL */
+
+.terminal {
+    font-family: "DM Mono", monospace;
+}
 
 .boot-screen {
     display: flex;
@@ -95,19 +77,21 @@ button {
     padding: 30px;
 }
 
-.boot-screen .terminal {
+.boot-screen .terminal,
+.closing-screen .terminal {
     width: min(700px, 100%);
     color: var(--muted);
     font-size: 14px;
     line-height: 2;
 }
 
-.boot-screen .terminal-line {
+.terminal-command {
     color: var(--pink-soft);
     margin-bottom: 20px;
 }
 
-.boot-lines div {
+.boot-lines div,
+.closing-lines div {
     opacity: 0;
     animation: bootLine 0.4s forwards;
 }
@@ -160,9 +144,7 @@ button {
 }
 
 
-/* =========================
-   OPENING HERO
-========================= */
+/* OPENING */
 
 .opening-hero {
     display: flex;
@@ -187,7 +169,6 @@ button {
 }
 
 .opening-hero h1 {
-    width: 100%;
     font-family: "Manrope", sans-serif;
     font-size: clamp(60px, 10vw, 150px);
     font-weight: 700;
@@ -223,7 +204,6 @@ button {
     font-size: 17px;
 }
 
-
 .tech-tags {
     display: flex;
     justify-content: center;
@@ -238,9 +218,7 @@ button {
     color: var(--muted);
     font-family: "DM Mono", monospace;
     font-size: 11px;
-    letter-spacing: 1px;
 }
-
 
 .open-btn {
     width: min(400px, 100%);
@@ -267,7 +245,6 @@ button {
     color: var(--muted);
     font-family: "DM Mono", monospace;
     font-size: 11px;
-    letter-spacing: 1px;
 }
 
 .system-status span {
@@ -275,16 +252,13 @@ button {
 }
 
 
-/* =========================
-   ACCESS SCREEN
-========================= */
+/* ACCESS */
 
 .access-screen {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px;
-    text-align: left;
 }
 
 .access-box {
@@ -314,9 +288,7 @@ button {
 }
 
 
-/* =========================
-   INVITATION PAGE
-========================= */
+/* INVITATION */
 
 .invitation-page {
     min-height: 100vh;
@@ -332,7 +304,6 @@ button {
     color: var(--muted);
     font-family: "DM Mono", monospace;
     font-size: 11px;
-    letter-spacing: 1px;
 }
 
 .invitation-page main {
@@ -504,11 +475,6 @@ button {
     cursor: pointer;
     font-size: 11px;
     letter-spacing: 1px;
-    transition: 0.3s ease;
-}
-
-.location-btn:hover {
-    background: rgba(214,154,181,0.1);
 }
 
 
@@ -548,41 +514,16 @@ button {
     cursor: pointer;
     font-size: 10px;
     letter-spacing: 1px;
-    transition: 0.3s;
-}
-
-.close-btn:hover {
-    border-color: var(--pink);
-    color: var(--pink-soft);
 }
 
 
-/* =========================
-   CLOSING
-========================= */
+/* CLOSING */
 
 .closing-screen {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px;
-}
-
-.closing-screen .terminal {
-    width: min(700px, 100%);
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 2;
-}
-
-.closing-screen .terminal > div:first-child {
-    color: var(--pink-soft);
-    margin-bottom: 20px;
-}
-
-.closing-lines div {
-    opacity: 0;
-    animation: bootLine 0.5s forwards;
 }
 
 .closing-lines div:nth-child(1) {
@@ -606,9 +547,7 @@ button {
 }
 
 
-/* =========================
-   FADE
-========================= */
+/* FADE */
 
 @keyframes fadeIn {
     from {
@@ -621,9 +560,9 @@ button {
 }
 
 
-/* ==================================================
-   MOBILE — INI YANG PALING PENTING
-================================================== */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
@@ -637,7 +576,6 @@ button {
     .closing-screen .terminal {
         font-size: 11px;
         line-height: 1.9;
-        word-break: break-word;
     }
 
 
@@ -649,59 +587,36 @@ button {
         overflow: hidden;
     }
 
-    .hero-content {
-        width: 100%;
-        max-width: 100%;
-    }
-
     .eyebrow {
         font-size: 9px;
         letter-spacing: 3px;
         margin-bottom: 30px;
     }
 
-    /*
-       INI YANG MEMPERBAIKI
-       GRADUATION.EXE KEPOTONG
-    */
+    /* GRADUATION.EXE DIPERKECIL, TETAP SATU BARIS */
 
     .opening-hero h1 {
-        font-size: clamp(39px, 13vw, 65px);
-        line-height: 0.95;
+        font-size: 36px;
+        line-height: 1;
         letter-spacing: -2px;
-
-        white-space: normal;
-        overflow-wrap: normal;
-        word-break: normal;
-
+        white-space: nowrap;
         width: 100%;
-        max-width: 100%;
-
         text-align: center;
     }
-
-    .opening-hero h1 span {
-        color: var(--pink);
-    }
-
 
     .pink-line {
         width: 110px;
         margin: 35px auto 28px;
     }
 
-
     .opening-hero h2 {
-        font-size: clamp(25px, 7vw, 36px);
+        font-size: 26px;
         line-height: 1.2;
-        letter-spacing: -0.5px;
     }
 
     .program {
         font-size: 13px;
-        margin-top: 9px;
     }
-
 
     .tech-tags {
         gap: 7px;
@@ -712,9 +627,7 @@ button {
     .tech-tags span {
         padding: 8px 10px;
         font-size: 8px;
-        letter-spacing: 0.5px;
     }
-
 
     .open-btn {
         width: 100%;
@@ -726,7 +639,6 @@ button {
 
     .system-status {
         font-size: 8px;
-        margin-top: 20px;
     }
 
 
@@ -741,7 +653,6 @@ button {
         width: calc(100% - 40px);
     }
 
-
     .intro-section {
         padding: 80px 0 60px;
     }
@@ -752,7 +663,7 @@ button {
     }
 
     .intro-section h2 {
-        font-size: clamp(43px, 13vw, 65px);
+        font-size: 46px;
         letter-spacing: -2px;
     }
 
