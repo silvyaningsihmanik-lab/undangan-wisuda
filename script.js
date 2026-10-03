@@ -1,33 +1,51 @@
 function openInvitation() {
 
-    const opening =
-        document.getElementById("opening");
+    const bootScreen =
+        document.getElementById("bootScreen");
 
-    const accessScreen =
-        document.getElementById("accessScreen");
+    const loadingScreen =
+        document.getElementById("loadingScreen");
 
-    const invitation =
-        document.getElementById("invitation");
-
-
-    opening.style.display = "none";
+    const mainContent =
+        document.getElementById("mainContent");
 
 
-    accessScreen.classList.add("show");
+    bootScreen.style.opacity = "0";
+
+    bootScreen.style.transition = "opacity .6s ease";
 
 
     setTimeout(function () {
 
-        accessScreen.classList.remove("show");
+        bootScreen.style.display = "none";
 
-        invitation.classList.add("show");
+        loadingScreen.classList.add("show");
 
-        window.scrollTo(0, 0);
 
-    }, 1200);
+        setTimeout(function () {
+
+            const progress =
+                document.querySelector(".progress-bar");
+
+            progress.style.width = "100%";
+
+        }, 150);
+
+
+        setTimeout(function () {
+
+            loadingScreen.classList.remove("show");
+
+            mainContent.classList.add("show");
+
+            window.scrollTo(0, 0);
+
+        }, 2200);
+
+
+    }, 600);
 
 }
-
 
 
 function openLocation() {
